@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+export DH_GOLANG_INSTALL_EXTRA := testdata
+
+%:
+	dh $@ --buildsystem=golang --with=golang --builddirectory=_build
+
+# Tests expect network resources and extra cli tools
+override_dh_auto_test:
